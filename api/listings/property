@@ -1,0 +1,86 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/property",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of custom properties in the system",
+          "notes": "This API call requests all of the property definitions stored in ImageNow Server. Integration Server returns a list of properties with their associated IDs and attributes, and structures the data in the response using the property type.",
+          "type": "string",
+          "nickname": "getProperty",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+    {
+      "path": "/property/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get properties of a Custom Property by ID",
+          "notes": "This API call requests the property definition stored in ImageNow Server that matches the ID. ImageNow Server returns all of the attributes and metadata associated with the property, and structures the data using the property type.",
+          "type": "string",
+          "nickname": "getPropertyByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Property to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YY3K_0000JXGC000000P"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

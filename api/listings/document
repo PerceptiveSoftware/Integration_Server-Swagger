@@ -1,0 +1,410 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/document/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get document properties by ID",
+          "notes": "This API call retrieves document information for the document that matches the given ID. The Integration Server response includes the document ID, document name, document keys, version number, as well as the properties and workflow items associated with the document. Integration Server also returns data pertaining to each page of the document: the page ID, page name, file name, and file extension. Note that in ImageNow, a document might be comprised of multiple files, and each file is considered a page.",
+          "nickname": "getDocByID",
+		  "type": "string",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000T"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/document/{id}/page/{pageId}/file",
+      "operations": [
+        {
+          "method": "HEAD",
+          "summary": "Get document page properties by ID",
+          "notes": "This API call requests the file information associated with a page stored in ImageNow Server, including the ID and the content length. Other than the standard header information, the call also returns the unique ID of the page along with name of the page and the file extension.",
+          "nickname": "getDocPageDetailsByID",
+		  "type": "string",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000T"
+            },
+			{
+              "name": "pageId",
+              "description": "ID of Page to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000Y"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/v2/document/{id}/page/{pageId}/file",
+      "operations": [
+        {
+          "method": "HEAD",
+          "summary": "Get document page properties by ID",
+          "notes": "This API call requests the file information associated with a page stored in ImageNow Server, including the ID and the content length. Other than the standard header information, the call also returns the unique ID of the page along with name of the page and the file extension.<br><br><b>Note</b> Version 2 of this call has better support for large files.",
+          "nickname": "getDocPageDetailsByID",
+		  "type": "string",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000T"
+            },
+			{
+              "name": "pageId",
+              "description": "ID of Page to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000Y"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+		{
+      "path": "/document/{id}/page/{pageId}/thumbnail",
+      "operations": [
+        {
+          "method": "HEAD",
+          "summary": "Get document page properties by ID",
+          "notes": "This API call requests file information for a thumbnail PNG file of a page stored in ImageNow Server. The request contains the document ID and page ID for the page for which you want to return a thumbnail.",
+          "nickname": "getDocPageThumbByID",
+		  "type": "string",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000T"
+            },
+			{
+              "name": "pageId",
+              "description": "ID of Page to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000Y"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/document/{id}/page/{pageId}/preview",
+      "operations": [
+        {
+          "method": "HEAD",
+          "summary": "Get document page properties by ID",
+          "notes": "This API call requests file information for a preview PNG file of a page stored in ImageNow Server. You can use page previews for mobile devices where the maximum height and width of the image is device dependent, for galleries where you need a uniform image size, or for other purposes. The request contains the document ID and page ID for the page that you want to preview along with the following query parameters.<br><br><b>maxHeight</b> - Indicates the maximum number of pixels for the height of the preview.<br><br><b>maxWidth</b> - Indicates the maximum number of pixels for the width of the preview.<br><br><b>Note</b> If you do not specify values for maxHeight and maxWidth, Integration Server returns the PNG in the original height and width.<br><br><b>pageNumber</b> - Each page within an ImageNow document is an individual file, and a file may have multiple page numbers. This identifies the page number to preview. If you do not specify a value, Integration Server returns the first page of the file.<br><br>Other than the standard header Information, Integration Server also returns the unique ID of the page, the name of the page as it is in ImageNow, and the total number of sub-pages that exist for the given page.",
+          "nickname": "getDocPagePreviewByID",
+		  "type": "string",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000T"
+            },
+			{
+              "name": "pageId",
+              "description": "ID of Page to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000Y"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/document/{id}/page",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get document page properties by ID",
+          "notes": "This API call requests page information from ImageNow Server for the document that matches the given ID. The ImageNow Server response includes a section for each page, and provides the page ID, filename, extension and page number. Note that in ImageNow, a document might be comprised of multiple files, and each file is considered a page.",
+          "nickname": "getDocPageByID",
+		  "type": "string",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000T"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	
+	{
+      "path": "/document/{id}/digitalSignature",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get document digital signature properties by ID",
+          "notes": "This API call requests digital signature information from ImageNow Server for the document that matches the given ID. Integration Server structures the return data using the documentDigitalSignatures type, which provides detailed information about the digital signature or signatures and their creation.",
+          "nickname": "getDocSignatureByID",
+		  "type": "string",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000T"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	 {
+      "path": "/document/{id}/page",
+      "operations": [
+        {
+          "method": "POST",
+          "summary": "Add page to document",
+          "notes": "This API call retrieves document information for the document that matches the given ID. The Integration Server response includes the document ID, document name, document keys, version number, as well as the properties and workflow items associated with the document. Integration Server also returns data pertaining to each page of the document: the page ID, page name, file name, and file extension. Note that in ImageNow, a document might be comprised of multiple files, and each file is considered a page.",
+          "nickname": "postPageByID",
+		  "produces":["application/octet-stream"],
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YY3K_0000JXGC000000T"
+            },
+			{
+              "name": "addData",
+              "description": "addData to capture",
+              "required": false,
+              "type": "string",
+              "paramType":"form",
+              "allowMultiple":false
+            },
+			{
+              "name": "file",
+              "description": "File to capture",
+              "required": false,
+              "type": "File",
+              "paramType":"file",
+              "allowMultiple":false
+            },
+			{
+              "name": "X-IntegrationServer-Resource-Name",
+              "description": "File name",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"File1.pdf"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

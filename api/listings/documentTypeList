@@ -1,0 +1,86 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/documentTypeList",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system Document Type Lists",
+          "notes": "This API call requests the complete set of document type lists stored in ImageNow Server. Integration Server structures the response using the documentTypeList type, which includes the name, unique ID, and description for each document type list.",
+          "type": "string",
+          "nickname": "getDocumentTypeList",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+    {
+      "path": "/documentTypeList/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get Document Type List properties by ID",
+          "notes": "This API call requests the document type list stored in ImageNow Server that matches the given ID. Integration Server structures the response using the documentTypeList type, which provides the name, unique ID, and description for the document type list, along with the documentType subtype, which provides identifying information for each document type that the document type list contains.",
+          "type": "string",
+          "nickname": "getDocumentTypeByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document Type List to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DJ3M300000F"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

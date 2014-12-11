@@ -1,0 +1,282 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/v2/user",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system users",
+          "notes": "This API call retrieves the complete list of users in your ImageNow system. Integration Server structures the response using the user type, which provides a list of ImageNow user names and their associated unique IDs.",
+          "type": "string",
+          "nickname": "getUsers",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ] 
+        }
+      ]
+    },
+	{
+      "path": "/user/group",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get user properties by ID",
+          "notes": "This API call retrieves the list of ImageNow user groups to which a given user belongs. The required userName query parameter identifies the ImageNow user. Integration Server structures the response using the group type, which provides the unique ID, name, and description for each group.",
+          "type": "string",
+          "nickname": "getUserGroups",
+          "parameters": [
+		  {
+		   "name": "userName",
+              "description": "Name of ImageNow user.",
+              "required": true,
+              "type": "string",
+              "paramType":"query",
+			  "allowMultiple":false,
+			  "defaultValue":"in_user1"
+            },
+            
+			{
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "path": "/user/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get user properties by ID",
+          "notes": "This API call retrieves basic information about the user in ImageNow Server that matches the given ID. Integration Server structures the response using the user type.",
+          "type": "string",
+          "nickname": "getUserByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of User to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YY3J_000001L7S000006"
+            },
+			{
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "path": "/user",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system users",
+          "notes": "This API call retrieves the complete list of users in your ImageNow system. Integration Server structures the response using the user type, which provides a list of ImageNow user names and their associated unique IDs.",
+          "type": "string",
+          "nickname": "getUsers",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/user/{id}/privilege",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get user privs properties by ID",
+          "notes": "This API call requests privilege information about the user privileges with the given ID. Integration Server structures the response using the privilegeSet type, which provides the unique ID (unless it's a global privilege set) and type of each privilege set, the name of each privilege within a set, as well as whether the privilege for that user is GRANTED, DENIED, or UNSET.",
+          "type": "string",
+          "nickname": "getUserPprivsByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of User to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YY3J_000001L7S000006"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+    {
+      "path": "/user/{id}/extendedInfo",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get extended user profile properties by ID",
+          "notes": "This API call retrieves detailed information about the user in ImageNow Server that matches the given ID.  This call is similar to GET: /user/{id}, but returns more information. Integration Server structures the response using the user type.",
+          "type": "string",
+          "nickname": "getUserExtendedInfoByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of User to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YY3J_000001L7S000006"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/user/{id}/group",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get user group membership by user ID",
+          "notes": "This API call retrieves the group membership for an existing user. Integration Server structures the request using the group type, which provides fields for setting the user's group membership information.",
+          "type": "string",
+          "nickname": "getUserGroupByUserID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of User to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YY3J_000001L7S000006"
+            },
+			{
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

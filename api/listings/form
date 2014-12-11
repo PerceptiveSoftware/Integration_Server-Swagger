@@ -1,0 +1,244 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/form",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of forms in the system",
+          "notes": "This API call requests a list of the forms stored in ImageNow Server. You can use the optional includeInactive query parameter to indicate whether to return inactive forms.",
+          "type": "string",
+          "nickname": "getForm",
+          "parameters": [
+			{
+              "name": "includeInactive",
+              "description": "Include INACTIVE forms (True/False)",
+              "required": false,
+              "type": "string",
+              "paramType":"query",
+			  "allowMultiple":false,
+			  "enum":["true","false"],
+			  "defaultValue":"true"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+    {
+      "path": "/form/{id}/presentation",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get form presentation by form ID",
+          "notes": "This API call requests all presentations for the form in ImageNow Server that matches the given ID. Integration Server structures the return data using the presentation type, which provides the name and unique ID of the presentation. The presentation type also includes the userPrivileges type, which indicates which privileges the authenticated user has for the presentation.",
+          "type": "string",
+          "nickname": "getFormPresentationByFormID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Form to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DN3M300000S"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/form/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get form properties by ID",
+          "notes": "This API call requests the form in ImageNow Server that matches the given ID. Integration Server structures the return data using the form type, which provides the name, unique ID, and description for the form, and also indicates whether the form is active in your ImageNow system.",
+          "type": "string",
+          "nickname": "getFormByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Form to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DN3M300000S"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/form/{id-form}/presentation/{id-presentation}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get form presentation file properties by ID",
+          "notes": "This API call requests information about all of the files for a presentation associated with the form in ImageNow Server that matches the given ID. The request includes the ID for the presentation and the ID for the associated form. Integration Server structures the response using the presentation type, which includes identifying information for the data definition and each of the support files.",
+          "type": "string",
+          "nickname": "getFormPresentationByID",
+          "parameters": [
+            {
+              "name": "id-form",
+              "description": "ID of Form to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DN3M300000S"
+            },
+			{
+              "name": "id-presentation",
+              "description": "Presentation ID of Form to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DN3M300000N"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/form/{id-form}/presentation/{id-presentation}/file/{id-file}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get form presentation files by ID",
+          "notes": "This API call requests information about all of the files for a presentation associated with the form in ImageNow Server that matches the given ID. The request includes the ID for the presentation and the ID for the associated form. Integration Server structures the response using the presentation type, which includes identifying information for the data definition and each of the support files.",
+          "type": "string",
+          "nickname": "getFormPresentationFilesByID",
+		  "produces":["application/octet-stream"],
+          "parameters": [
+            {
+              "name": "id-form",
+              "description": "ID of Form to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DN3M300000S"
+            },
+			{
+              "name": "id-presentation",
+              "description": "Presentation ID of Form to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DN3M300000N"
+            },
+			{
+              "name": "id-file",
+              "description": "Presentation File ID of Form to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DC3M300000S"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

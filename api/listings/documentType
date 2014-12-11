@@ -1,0 +1,86 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/documentType",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system Document Types",
+          "notes": "This API call requests a list of all document types stored in ImageNow Server. Integration Server structures the response using the documentType type, which includes the name, unique ID, and description for each document type.",
+          "type": "string",
+          "nickname": "getDocumentType",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+    {
+      "path": "/documentType/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get Document Type properties by ID",
+          "notes": "This API call requests the associated attributes and properties for the document type stored in ImageNow Server that matches the given ID. Integration Server structures the response using the documentType type, which includes the name, unique ID, and description of the document type, along with associated property data. If there is an ImageNow form associated with the document type, Integration Server also returns the form ID.",
+          "type": "string",
+          "nickname": "getDocumentTypeByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document Type to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YY3K_0000JXGC0000008"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

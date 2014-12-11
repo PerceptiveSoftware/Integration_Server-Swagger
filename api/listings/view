@@ -1,0 +1,94 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/view",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system views",
+          "notes": "This API call gets the list of ImageNow views that match the category and classifier and that the user has the privileges to access. If you do not include the category and classifier in the request, Integration Server returns all views in your ImageNow system. Integration Server structures the response using the view data type, which provides the name, unique ID, description, category, and classifier for each view. The classifier is relevant for workflow views. To return more detailed information for a specific view, use the GET: /view/{id} operation.",
+          "type": "string",
+          "nickname": "getViews",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ] 
+        }
+      ]
+    },
+	{
+      "path": "/view/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get view properties by ID and category",
+          "notes": "This API call requests information about the view or view filter in ImageNow Server that matches the given ID. Integration Server structures the return data using the view type, which provides detailed information about the ImageNow view, and contains several subtypes that provide additional data.<br><br><br>You must provide the category query parameter with the request to specify the view type.<br><br>    DOCUMENT. Indicates that the view type associated with the ID is a document view.<br><br>    FOLDER. Indicates that the view type associated with the ID is a folder view.<br><br>    FOLDER_CONTENT. Indicates that view type associated with the ID is for a folder content view. The ID is a folder ID or drawer ID.<br><br>    TASK. Indicates that the view type associated with the ID is a task view.<br><br>    WORKFLOW. Indicates that the view type associated with the ID is a workflow view.<br><br>The category must match the view type associated with the given ID or Integration Server returns an exception. The category query parameter is an enumeration.",
+          "type": "string",
+          "nickname": "getViewByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of User Group to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"SysDocumentsAll"
+            },
+			{
+			 "name": "category",
+              "description": "View category",
+              "required": true,
+              "type": "string",
+              "paramType":"query",
+			  "allowMultiple":false,
+			  "enum":["DOCUMENT","FOLDER","FOLDER_TYPE","TASK","WORKFLOW"],
+			  "defaultValue":"DOCUMENT"
+            },
+			{
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

@@ -1,0 +1,168 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/workflowQueue",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system Workflow Queues",
+          "notes": "This API call requests the list of workflow queues stored in ImageNow Server that the user has the privileges to access. At a minimum, the user needs the workflow Process privilege to have access to a queue in a workflow process. Integration Server uses the workflowQueue type to structure the return data, which includes the workflow queue name and ID, the associated workflow process name and ID, and, if there is an on-hold reason list associated with the workflow queue, the unique ID of the reason list.",
+          "type": "string",
+          "nickname": "getWorkflowQueues",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+    {
+      "path": "/workflowQueue/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get Workflow Queue properties by ID",
+          "notes": "This API call gets the workflow queue stored in ImageNow Server that matches the given ID. Integration Server returns the workflow queue name and ID, along with the associated workflow process name and ID, using the workflowQueue type.",
+          "type": "string",
+          "nickname": "getWorkflowQueueByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Workflow Queue to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DK3M300000K"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/workflowQueue/{id}/forwardRoute",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get Workflow Queue route properties by Workflow Queue ID",
+          "notes": "This API call requests the list of all possible destinations when forwarding items out of the workflow queue that matches the given ID. Integration Server provides detailed information about each of the possible routes using the forwardRoute type.",
+          "type": "string",
+          "nickname": "getWorkflowQueueForwardRoute",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Workflow Queue",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DK3M300000K"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/workflowQueue/{id}/form",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get Workflow Queue form properties by Workflow Queue ID",
+          "notes": "This API call requests the list of forms associated with the workflow queue that matches the given ID. Integration Server structures the response using the form type, which provides the name and unique ID of the form in your ImageNow system. There is one instance of the form type for each form associated with the workflow queue.",
+          "type": "string",
+          "nickname": "getWorkflowQueueForm",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Workflow Queue",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DN3M300000K"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

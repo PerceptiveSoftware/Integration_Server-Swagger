@@ -1,0 +1,73 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+   "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/connection",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Establish a user session with the ImageNow Server",
+          "notes": "This API call verifies the connection status of Integration Server to ImageNow Server and makes a connection to ImageNow Server if one does not already exist. If the connection is active, ImageNow Server returns the ImageNow version number. If the connection check fails, the system tries to create a new connection. The connectionStatus type provides the structure for the response.",
+          "type": "string",
+          "nickname": "getConnection",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        },
+		{
+          "method": "DELETE",
+          "summary": "End a user session that was established with the ImageNow Server",
+          "notes": "This API call disconnects the connection between Integration Server and ImageNow Server for the given session hash. If the disconnect is successful, ImageNow Server returns an HTTP Response Status Code of 200. If the disconnect is not successful, ImageNow Server returns an exception.",
+          "type": "string",
+          "nickname": "deleteConnection",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

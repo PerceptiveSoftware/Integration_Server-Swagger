@@ -1,0 +1,86 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/drawer",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system Drawers",
+          "notes": "This API call gets the list of ImageNow drawers. Integration Server uses the drawer data type to provide the name and unique ID for each drawer. To return more detailed information for a specific drawer, including the list of folders and documents that a drawer contains, use the GET: /drawer/{id} operation.",
+          "type": "string",
+          "nickname": "getDrawer",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+    {
+      "path": "/drawer/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get drawer properties by ID",
+          "notes": "This API call returns detailed information about the drawer stored in ImageNow Server that matches the given ID. ImageNow Server returns the drawer data type, which provides the drawer name and ID, as well as the list of folders and documents that the drawer contains. ImageNow Server returns the document keys for documents within folders.",
+          "type": "string",
+          "nickname": "getDrawerByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Drawer to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YY3K_0000JXGC0000007"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

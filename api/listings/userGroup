@@ -1,0 +1,125 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/userGroup",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system user groups",
+          "notes": "This API call retrieves a list of user groups. Integration Server structures the response using the userGroup type, which provides the ID, name, category, and description for each user group.",
+          "type": "string",
+          "nickname": "getUserGroups",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ] 
+        }
+      ]
+    },
+	{
+      "path": "/userGroup/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get user properties by ID",
+          "notes": "This API call requests detailed information about the user group in ImageNow Server that matches the given ID. Integration Server structures the response using the usergroup type, which provides the ID, name, category, and description for the user group as well as the unique ID of each user.",
+          "type": "string",
+          "nickname": "getUserGroupByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of User Group to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYCL_0001DK3M300001Z"
+            },
+			{
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+        }
+      ]
+    },
+	{
+      "path": "/userGroup/{id}/privilege",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get user privs properties by ID",
+          "notes": "This API call requests detailed information about the privileges for the user group that matches the given ID. Integration Server structures the response using the privilegeSet type, which provides the unique ID and type of each privilege set, the name of each privilege within a set, as well as whether the  privilege for that user group is GRANTED, DENIED, or UNSET .",
+          "type": "string",
+          "nickname": "getUserGroupPrivsByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of User Group to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYCL_0001DK3M300001Z"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

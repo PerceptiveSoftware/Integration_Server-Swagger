@@ -1,0 +1,86 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/applicationPlan",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system Capture Profiles",
+          "notes": "This API call requests the list of active capture profiles stored in ImageNow Server. Integration Server structures the response using the captureProfile type, which includes the capture profile ID, name, description, and type, along with the capture source type. The captureProfileType enumeration provides the possible values for the general capture profile type, such as INTERACT or AGENT, and the captureSourceType enumeration provides the possible values for the capture source, such as INTERACT_OUTLOOK or IMPORT_AGENT.",
+          "type": "string",
+          "nickname": "getApplicationPlan",
+          "parameters": [
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+    {
+      "path": "/applicationPlan/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get capture profile properties by ID",
+          "notes": "This API call requests the capture profile stored in ImageNow Server that matches the given ID. Integration Server structures the response using the captureProfile type, which provides detailed information about the capture profile and includes the applicationPlan type, which provides information about the associated application plan.",
+          "type": "string",
+          "nickname": "getApplicationPlanByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Capture Profile to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DG3M300001M"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

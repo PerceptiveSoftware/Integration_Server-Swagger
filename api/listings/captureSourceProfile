@@ -1,0 +1,53 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/captureSourceProfile/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Gets a capture source profile by ID",
+          "notes": "This API call requests the capture source profile from ImageNow Server that matches the given ID. Integration Server structures the response using the captureSourceProfile type, which provides detailed information about a capture source profile, and includes the ID, name, description, type, and properties.",
+          "type": "string",
+          "nickname": "getCaptureSourceProfile",
+          "parameters": [
+			{
+              "name": "id",
+              "description": "ID of Capture Source Profile to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001D83M300000G"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

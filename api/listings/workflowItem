@@ -1,0 +1,54 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/workflowItem/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get workflow item properties by ID",
+          "notes": "This API call requests information about the workflow item stored in ImageNow Server that matches the given ID. Integration Server structures the response using the workflowItem type. The workflowItem type includes the stateInfo subtype, which provides detailed information about the state of the workflow item.",
+          "nickname": "getWFItemByID",
+		  "type": "string",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Document to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+              "allowMultiple":false,
+			  "defaultValue":"321YYCL_0001DH3M3000021"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+

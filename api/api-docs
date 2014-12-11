@@ -1,0 +1,78 @@
+{
+  "swaggerVersion": "1.2",
+  "apis": [
+    {
+      "path": "http://apidocs.psft.co/api/listings/serverInfo",
+      "description": "View server version"
+    },
+    {
+      "path": "http://apidocs.psft.co/api/listings/drawer",
+      "description": "Get drawer info"
+    },
+    {
+      "path": "http://apidocs.psft.co/api/listings/document",
+      "description": "Get document info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/documentType",
+      "description": "Get document type info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/documentTypeList",
+      "description": "Get document type list info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/connection",
+      "description": "Manage user sessions"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/workflowQueue",
+      "description": "Get workflow queue info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/property",
+      "description": "Get custom property info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/captureProfile",
+      "description": "Get capture profile info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/applicationPlan",
+      "description": "Get application plan info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/captureSourceProfile",
+      "description": "Get capture source profile info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/form",
+      "description": "Get and store form info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/user",
+      "description": "Get and store user and group info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/userGroup",
+      "description": "Get and store user and group info"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/view",
+      "description": "Get and execute system views"
+    },
+	{
+      "path": "http://apidocs.psft.co/api/listings/workflowItem",
+      "description": "Get and execute system views"
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+

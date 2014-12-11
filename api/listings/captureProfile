@@ -1,0 +1,143 @@
+{
+  "swaggerVersion": "1.2",
+  "basePath": "http://apidocs.psft.co/integrationserver",
+  "produces":["application/json", "application/xml"],
+  "apis": [
+    {
+      "path": "/captureProfile",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get a list of system Capture Profiles",
+          "notes": "This API call requests the list of active capture profiles stored in ImageNow Server. Integration Server structures the response using the captureProfile type, which includes the capture profile ID, name, description, and type, along with the capture source type. The captureProfileType enumeration provides the possible values for the general capture profile type, such as INTERACT or AGENT, and the captureSourceType enumeration provides the possible values for the capture source, such as INTERACT_OUTLOOK or IMPORT_AGENT.",
+          "type": "string",
+          "nickname": "getCaptureProfile",
+          "parameters": [
+			{
+              "name": "sourceType",
+              "description": "List of possible values: FAX_AGENT, IMPORT_AGENT, CONNECTOR_SAP, INTERACT_OUTLOOK, EXTERNAL",
+              "required": false,
+              "type": "string",
+              "paramType":"query"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+    {
+      "path": "/captureProfile/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get capture profile properties by ID",
+          "notes": "This API call requests the capture profile stored in ImageNow Server that matches the given ID. Integration Server structures the response using the captureProfile type, which provides detailed information about the capture profile and includes the applicationPlan type, which provides information about the associated application plan.",
+          "type": "string",
+          "nickname": "getCaptureProfileByID",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Capture Profile to be returned",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001D43M300001V"
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    },
+	{
+      "path": "/captureProfile/applicationPlan/itemList/{id}",
+      "operations": [
+        {
+          "method": "GET",
+          "summary": "Get list items for itemLists associated with an Application Plan",
+          "notes": "This API call requests the context map item list stored in ImageNow Server that matches the given list source type. Note that the request must include one of the following values in the listSourceType query parameter, which is the source type of the list to retrieve.",
+          "type": "string",
+          "nickname": "getCaptureProfileApplicationPlanListItems",
+          "parameters": [
+            {
+              "name": "id",
+              "description": "ID of Application Plan List",
+              "required": true,
+              "type": "string",
+              "paramType":"path",
+			  "defaultValue":"321YYBH_0001DL3M300000V"
+            },
+			{
+              "name": "listSourceType",
+              "description": "Select PREDEFINED_LIST for this example",
+              "required": true,
+              "type": "string",
+              "paramType":"query",
+			  "allowMultiple":true,
+			  "enum":["PREDEFINED_LIST","USER_NAME_SELECT","DOC_TYPE_LIST"]
+            },
+            {
+              "name": "X-IntegrationServer-Username",
+              "description": "ImageNow Username",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"Devpartner1"
+            },
+            {
+              "name": "X-IntegrationServer-Password",
+              "description": "ImageNow Password",
+              "required": true,
+              "type": "string",
+              "paramType":"header",
+              "allowMultiple":false,
+			  "defaultValue":"1m@g3N0w!"
+            }
+          ]
+          
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+
