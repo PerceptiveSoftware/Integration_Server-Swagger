@@ -9,7 +9,7 @@ Installation
 
 1. Update `path` variables in `api/api-docs` file to point to webserver address.
 ```
-example -- "path" : "http://apidocs.psft.co/api/listings/drawer"
+	example -- "path" : "http://apidocs.psft.co/api/listings/drawer"
 ```
 
 2. Update `basePath` variable in listing files to point to Integration Server URL.
